@@ -1,2 +1,2 @@
-# calliope
+# Calliope
 Calliope Project

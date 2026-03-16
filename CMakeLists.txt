@@ -1,3 +1,6 @@
+# Copyright (C) 2025 Hermes3 Technology, LLC
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
+
 cmake_minimum_required(VERSION 3.16)
 
 project(calliope VERSION 0.1 LANGUAGES CXX)
