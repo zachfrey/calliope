@@ -5,6 +5,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(calliope VERSION 0.1 LANGUAGES CXX)
 
+include(CTest)
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -14,6 +16,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+
+if(BUILD_TESTING)
+    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Test)
+endif()
 
 set(PROJECT_SOURCES
         main.cpp
@@ -70,4 +76,8 @@ install(TARGETS calliope
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(calliope)
+endif()
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
 endif()
