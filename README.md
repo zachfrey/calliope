@@ -1,10 +1,10 @@
 # Calliope
-Calliope is a cross-platform Qt desktop application in C++ for Windows and Ubuntu 24.04.
+Calliope is a cross-platform PySide6 (Qt for Python) desktop application for Windows and Ubuntu 24.04.
 
 ## Development Stack
-- Qt 6 with C++
-- CMake
-- Qt Test for the first test layer
+- PySide6 (Qt 6 for Python)
+- `uv` for environment and dependency management
+- pytest + pytest-qt for the first test layer
 - AI-assisted development guided by `AGENTS.md` and the files in `contracts/`
 
 ## Workflow
@@ -14,19 +14,18 @@ Calliope is a cross-platform Qt desktop application in C++ for Windows and Ubunt
 - Treat contracts as part of the codebase, not side documentation.
 
 ## Project Layout
-- `main.cpp`, `mainwindow.*`, `mainwindow.ui`: current application scaffold
+- `src/calliope/`: application scaffold (`app/`, `ui/`, `domain/`)
 - `tests/`: automated tests
 - `contracts/`: AI and architecture constraints
+- `cpp-legacy/`: original C++/Qt scaffold, kept for reference only
 - `TODO.md`: near-term roadmap
 
 ## Build
 ```powershell
-cmake -S . -B build
-cmake --build build
-ctest --test-dir build --output-on-failure
+uv sync
+uv run python -m calliope
+uv run pytest
 ```
-
-If CMake cannot find Qt, point it at your Qt installation with `CMAKE_PREFIX_PATH`.
 
 ## Next Step
 Build the first real feature as a thin vertical slice:
