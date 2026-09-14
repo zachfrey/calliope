@@ -40,6 +40,7 @@ The codebase is intentionally optimized for:
 - Prefer concise commits with one clear purpose.
 - Use `feat:` for user-visible capability, `fix:` for defects, `test:` for tests, `docs:` for documentation, and `chore:` for scaffolding or maintenance.
 - If a commit mixes behavior and scaffolding, split it unless the scaffolding only exists to support that behavior.
+- Commits are reserved for the user to review and create. An AI agent should stage and describe changes but not run `git commit` unless explicitly asked to commit that specific change.
 
 ## Near-Term Layout
 The current repo is still small. Grow toward this shape as features appear:
